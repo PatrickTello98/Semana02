@@ -18,7 +18,7 @@ public class AlumnoController {
 	@Autowired
 	private AlumnoService alumnoService;
 	
-	
+	 
 	@GetMapping
 	public List<Alumno> listaAlumno(){
 		List<Alumno> lstSalida = alumnoService.listaAlumno();
@@ -35,6 +35,16 @@ public class AlumnoController {
 	public List<Alumno> listaAlumnoPorNombre(@PathVariable("nombre") String nombre){
 		List<Alumno> lstSalida = alumnoService.listaAlumnoPorNombreLike(nombre+"%");
 		return lstSalida;
+	}
+	
+	@GetMapping("/porId/{id}")
+
+	public List<Alumno> listaAlumnoPorId(@PathVariable("id") int id){
+
+		List<Alumno> lstSalida = alumnoService.listaAlumnoPorId(id);
+
+		return lstSalida;
+
 	}
 	
 }
